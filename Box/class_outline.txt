@@ -1,0 +1,106 @@
+// Class outline for Chapter 5, Exercises
+< Class BoxFactory
+    __________
+    +_main_(): void
+      rectAngle[]: Rectangle
+      parentRectangle: Rectangle
+      line: MyLine
+      points: Point
+      coords[][]: double >
+
+package Geometry
+{
+  < Class Point
+      -_count_: int
+      _highX_: double
+      _highY_: double
+      _lowX_: double
+      _lowY_: double
+      _coordX_: double
+      _coordY_: double
+      -x: double
+      -y: double
+      -index: int
+      __________
+      +MyPoint(double inX, double inY)
+      +MyPoint(double inX, double inY, int index)
+      +getX(): double
+      +getY(): double
+      +getIndex(): int
+      +_getCount()_: int
+      +setX(double inX): void
+      +setY(double inY): void
+      +toString(): String
+      +displayOneCoord(): void
+      +_displayAllCoords(MyPoint[] p)_: void
+      +distance(final MyPoint inP): double
+      +_oversizePoints(double[][] c)_: Rectangle >
+
+  < Class MyLine
+      ID_A: String
+      ID_B: String
+      ID_C: String
+      ID_D: String
+      strLineId: String
+      -start: MyPoint
+      -end: MyPoint
+      -lineAB: double
+      -lineBC: double
+      -currentShape: Rectangle
+      __________
+      +MyLine()
+      +getStart(): MyPoint
+      +getEnd(): MyPoint
+      +getLineAB(): double
+      +getLineBC(): double
+      +setStart(MyPoint s): void
+      +setEnd(MyPoint e): void
+      +setLineAB(double ab): void
+      +setLineBC(double bc): void
+      +toString(): String
+      +length(): double
+      +area(): double
+      +defineAllSides(final int inSides, final Rectangle inRectAngle): void
+
+  < Class Rectangle
+      -_count_: int
+      -pointA: MyPoint
+      -pointB: MyPoint
+      -pointC: MyPoint
+      -pointD: MyPoint
+      -index: int
+      __________
+      +Rectangle(final MyPoint inA,
+                 final MyPoint inB,
+                 final MyPoint inC,
+                 final MyPoint inD)
+      +Rectangle(final MyPoint inA,
+                 final MyPoint inB,
+                 final MyPoint inC,
+                 final MyPoint inD,
+                 int index)
+      +getA(): MyPoint
+      +getB(): MyPoint
+      +getC(): MyPoint
+      +getD(): MyPoint
+      +getIndex(): int
+      +_getCount()_: int
+      +toString(): String
+      +_displayAllRectangles(Rectangle[] r)_: void >
+      
+  < Class Metrico
+      -_lengthCenti_: int
+      -_lengthMilli_: int
+      +lengthValue: double
+      __________
+      +Metrico(): void
+      +Metrico(int inMilli): void
+      +Metrico(double inCenti): void
+      +Metrico(int inMeter, double inCenti, int inMilli): void
+      +convert(double inLength): Metrico
+      +addSub(Metrico inA, Metrico inB): Metrico
+      +multiDiv(Metrico inA, Metrico inB): Metrico
+      +area(Metrico inA, Metrico inB): Metrico
+      +compare(Metrico inA, Metrico inB): Metrico
+      
+} Geometry //
