@@ -113,8 +113,6 @@ public class BoxFactory{
       "\nTotal area of all shapes:  " + totalArea);
 */
 
-    System.out.println("\n-----------------------------------------------\n");
-
     /* Create a parent rectangle encompassing all others inside.
      * Find highest & lowest values for X/Y.
      * Dsiplay all sides with length and calculated area.
@@ -134,6 +132,8 @@ public class BoxFactory{
     System.out.println("\nRectangle 'derivedRect' coords:\n" + derivedRect);
 */
 
+    System.out.println("\n-----------------------------------------------\n");
+    
     /* Create 3 objects tor calculating metric m/cm/mm.
      * Use random numbers for passed measurements.
      * Call method in Metrico class for calcualtion.
