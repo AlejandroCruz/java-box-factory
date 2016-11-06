@@ -108,7 +108,7 @@ public class BoxFactory{
      * Third Metrico obj will pass a double to test comunication
      *   between constructors.
      */
-    // Create Metrico aray with random values from 1 to 999.
+/*  // Create Metrico aray with random values from 1 to 999.
     for(int i = 0; i < 2; i++){
 
       aLengthM  = 1 + (int)(999*Math.random());
@@ -144,5 +144,6 @@ public class BoxFactory{
 
     System.out.println();
     System.out.println("\n-----------------------------------------------\n");
+*/
   }
 }
