@@ -85,6 +85,18 @@ public class BoxFactory{
     points[0].displayAllCoords(points); 
 
     System.out.println("\n-----------------------------------------------\n");
+
+    // Create Rectangles with four existing points
+    for(int i = 0, j = 0; i < points.length; i += 4, j++){
+      rectAngle[j] = new Rectangle(
+        points[i],
+        points[i+1],
+        points[i+2],
+        points[i+3],
+        j+1);
+    }
+    
+    System.out.println("\n-----------------------------------------------\n");
     
     /* Create 3 objects tor calculating metric m/cm/mm.
      * Use random numbers for passed measurements.
