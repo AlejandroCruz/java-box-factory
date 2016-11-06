@@ -80,7 +80,7 @@ public class BoxFactory{
     //points[0].displayOneCoord();
  
     // Display coordinates for all points
-    System.out.println("\nThere are a total of " +
+    System.out.println("\nTotal of " +
     Point.getCount() + " points in the form (x,y):\n");
     points[0].displayAllCoords(points); 
 
@@ -95,9 +95,13 @@ public class BoxFactory{
         points[i+3],
         j+1);
     }
-    
+
+    //Display all rectangles
+    System.out.println("Total of rectangles: " + Rectangle.getCount());
+    Rectangle.displayAllRectangles(rectAngle);
+
     System.out.println("\n-----------------------------------------------\n");
-    
+
     /* Create 3 objects tor calculating metric m/cm/mm.
      * Use random numbers for passed measurements.
      * Call method in Metrico class for calcualtion.
