@@ -1,84 +1,67 @@
 package Geometry;
 
-/* Chapter 5, Exercise: 1
- * Class Rectangle in Geometry package creates rectangles
- *  from points.
+/* Creates rectangles from points.
  */
 
 public class Rectangle{
   
   // CLASS VARIABLES
-  private static int count;             // Counter reference
+  private static int count;          // Counter reference
   
-  // INSTANCE VARIABLES  
-  private MyPoint   pointA;             // Rectangle corner A
-  private MyPoint   pointB;             // Rectangle corner B
-  private MyPoint   pointC;             // Rectangle corner C
-  private MyPoint   pointD;             // Rectangle corner D
-  private MyLine    lineAB;             // Rectangle line A+B
-  private MyLine    lineBC;             // Rectangle line B+C
-  private double    area;               // Rectangle area
-  private int       index;              // Index identifier for each rectangle
+  // INSTANCE VARIABLES
+  private int    index;              // Index identifier for each rectangle
+  private double area;               // Rectangle area
+  private Point  pointA;             // Rectangle corner A
+  private Point  pointB;             // Rectangle corner B
+  private Point  pointC;             // Rectangle corner C
+  private Point  pointD;             // Rectangle corner D
+  private Line   lineAB;             // Rectangle line A+B
+  private Line   lineBC;             // Rectangle line B+C
 
-
-  /* CONSTRUCTOR
-   * Create a rectangle from an existing object
-   */
+  // CONSTRUCTORS
   public Rectangle(Rectangle oldR){
       pointA = oldR.pointA;
       pointB = oldR.pointB;
       pointC = oldR.pointC;
       pointD = oldR.pointD;
   }
-  /* CONSTRUCTOR
-   * Create a rectangle from 2 lines: width, length. No index.
-   */
-  public Rectangle(MyLine inLineAB, MyLine inLineBC){
+  public Rectangle(Line inLineAB, Line inLineBC){
     lineAB = inLineAB;
     lineBC = inLineBC;
   }
-  /* CONSTRUCTOR  
-   * Create a rectangle from four points. No index.
-   */
   public Rectangle(
-    final MyPoint inA,
-    final MyPoint inB,
-    final MyPoint inC,
-    final MyPoint inD){
+    final Point inA,
+    final Point inB,
+    final Point inC,
+    final Point inD){
 
       pointA = inA;
       pointB = inB;
       pointC = inC;
       pointD = inD;
   }
-  /* CONSTRUCTOR
-   * Create a rectangle from four points.
-   * Append an index reference for each.
-   * Increment rectangle counter.
-   */
   public Rectangle(
-    final MyPoint inA,
-    final MyPoint inB,
-    final MyPoint inC,
-    final MyPoint inD, int index){
+    final Point inA,
+    final Point inB,
+    final Point inC,
+    final Point inD, int index){
 
       this(inA, inB, inC, inD);
       this.index  = index;
       count++;
   }
 
-
   // ACCESS
-  public MyPoint getA(){
+  public Point getA(){
     return pointA;
   }
-  public MyPoint getB(){
+  public Point getB(){
     return pointB;
   }
-  public MyPoint getC(){
+  public Point getC(){
     return pointC;
   }
-  public MyPoint getD(){
+  public Point getD(){
     return pointD;
   }
   public double getArea(){
@@ -91,7 +74,6 @@ public class Rectangle{
     return count;
   }
 
-
   // Auto-convert to a string
   public String toString(){
     return(
@@ -101,7 +83,6 @@ public class Rectangle{
       "\nPoint D: (" + pointD + ")" );
   }
 
-
   // Display all rectangles (corner points)
   public static void displayAllRectangles(Rectangle[] r){
     for(int i = 0; i < r.length; i++){
@@ -110,12 +91,10 @@ public class Rectangle{
     }
   }
   
-  
   // Rectangle version of area
   public double recArea(){
     return area = lineAB.getLineAB() * lineBC.getLineBC();
   }
-
   
   // Move the points from an existing rectangle
   public void movePoints(Rectangle inR){
@@ -124,5 +103,4 @@ public class Rectangle{
     inR.getC().setX( (1 + inR.getC().getX()) );
     inR.getD().setX( (1 + inR.getD().getX()) );
   }
-
 }

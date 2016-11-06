@@ -1,7 +1,6 @@
 package Conversion;
 
-/* Chapter 5, Exercise: 1
- * Represent a length measured in meters, centimeters, and millimeters.
+/* Represent a length measured in meters, centimeters, and millimeters.
  */
 
 public class Metrico{
@@ -10,18 +9,17 @@ public class Metrico{
   private static int CENTI = 100;       // Centimeter factor
   private static int CM_MM = 10;        // Centimeter factor
   private static int MILLI = 1000;      // Millimeter factor
-
   private static int counter = 0;       // Object counter
   
   // INSTANCE VARIABLES
-  public int totalSumInMilli = 0;       // Sum passed values into millimeters**************
+  public int totalSumInMilli = 0;       // Sum passed values into millimeters
   private int lengthM  = 0;             // Meters
   private int lengthCM = 0;             // Centimeters
   private int lengthMM = 0;             // Millimeters
   private int totalL   = 0;             // Sum of m/cm/mm fo each object
   private int[] outCalc = new int[4];   // Array of results from arithmentic calculation
 
-
+  // CONSTRUCTORS
   public Metrico(){
   }
   public Metrico(double inCM){
@@ -39,7 +37,6 @@ public class Metrico{
     this(inM + CENTI*inCM + MILLI*inMM);
     totalSumInMilli = inM + CENTI*inCM + MILLI*inMM;
   }
-
 
   // ACCESS
   public int getMeter(){
@@ -61,13 +58,11 @@ public class Metrico{
     return outCalc[arrayElement];
   }
 
-  
   // Convert all measurements to mm
   public int toMM(){
     return lengthM*MILLI + lengthCM*CM_MM + lengthMM;
   }
-  
-  
+ 
   // Add & subtract objects
   public int[] addSub(Metrico inLength){
     outCalc[0] = this.totalL + inLength.totalL;
@@ -80,8 +75,7 @@ public class Metrico{
     outCalc[3] = inLength.totalL / inVal;
     return outCalc;
   }
-  
-  
+
   // Compare objects (boolean returned)
   public boolean greaterThan(Metrico inLength){
     return totalL > inLength.totalL; // toMM() > inLength.toMM();
@@ -92,5 +86,4 @@ public class Metrico{
   public boolean equalThan(Metrico inLength){
     return toMM() == inLength.toMM();
   }
-
 }

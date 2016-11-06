@@ -1,82 +1,151 @@
 package Geometry;
-/* 
- * Ch5: TRY IT OUT - The Point Class
- * Class Point tha represents point objects
+
+/* Creates points in "x, y" form.
  */
 
-import static java.lang.Math.sqrt;
+import static java.lang.Math.sqrt;      // Calculate distance between two points
 
 public class Point {
+  
+  // CLASS VARIABLES
+  private static int count;             // Counter for amount of points
+  private static double highX;          // Highest & lowest value of x & y coordinates
+  private static double highY;          //   ...
+  private static double lowX;           //   ...
+  private static double lowY;           //   ...
+  private static double coordX  = 0.0;  // Create new coords by adding
+  private static double coordY  = 0.0;  //   or subtracting one.
 
-  // Create a point from coordinates
-  public Point(double xVal, double yVal){
-    x = xVal;
-    y = yVal;
+  // INSTANCE VARIABLES
+  private double  x;                    // Hold value for x &
+  private double  y;                    //   y coords.
+  private int     index;                // Identifier for each point
+  Point pA;                             // Rectangle corner A
+  Point pB;                             // Rectangle corner B
+  Point pC;                             // Rectangle corner C
+  Point pD;                             // Rectangle corner D
+
+  // CONSTRUCTORS
+  public Point(double inX, double inY){
+    x = inX;
+    y = inY;
+  }
+  public Point(double inX, double inY, int index){
+    this(inX, inY);
+    this.index = index;
+    count++;
   }
   
-  // Create a point from another object
-  public Point(final Point oldPoint){
-    x = oldPoint.x;              // Copy x coordinates 
-    y = oldPoint.y;              // Copy y coordinates
-  }
-  
-  // Move a point
-  public void move(double xDelta, double yDelta){
-    // Parameter values are increments to the current coordinates
-    x += xDelta;
-    y += yDelta;
-  }
-  
-  // Calculate the distance from another point
-  public double distance(final Point aPoint){
-    return sqrt( (x - aPoint.x)*(x - aPoint.x) + (y - aPoint.y)*(y - aPoint.y) );
-  }
-  
-  // Convert a point to a string
-  /*
-   * java.lang.String
-   * It is recommended that all subclasses override this method.
-   * public String toString()
-   * This object (which is already a string!) is itself returned.
-   * Specified by:
-   *  toString in interface CharSequence
-   * Overrides:
-   *  toString in class Object
-   * Returns:
-   *  the string itself.
-   *
-   * java.lang.Double
-   * public String toString()
-   * Returns a string representation of this Double object. The primitive double value represented by this object is converted to a string exactly as if by the method toString of one argument.
-   * Overrides:
-   *  toString in class Object
-   * Returns:
-   *  a String representation of this object.
-   * See Also:
-   *  toString(double)
-  */
-  public String toString(){
-    return Double.toString(x) + ", " + y;   // As "x, y"
-  }
-  
-  // Retrieve the x coordinate
+  // ACCESS
   public double getX(){
     return x;
   }
-  // Retrieve the y coordinate
   public double getY(){
     return y;
   }
-  // Set the x coordinate
-  public void setX(double inputX){
-    x = inputX;
+  public int getIndex(){
+    return index;
   }
-  // Set the y coordinate
-  public void setY(double inputY){
-    y = inputY;
+  public static int getCount(){
+    return count;
   }
   
-  // Coordinates of the points
-  private double x;
-  private double y;
+  // MUTATE
+  public void setX(double inX){
+    x = inX;
+  }
+  public void setY(double inY){
+    y = inY;
+  }
+
+  // Auto-convert to a string
+  public String toString() {
+    return Double.toString(x) + ", " + y;   // As "x, y"
+  }
+
+  // Display coordinates for one point
+  ///CODE CHECK: Not using toString()
+  public void displayOneCoord(){
+   System.out.println(
+     "\nPoint #" + getIndex() +
+     " coordinates (x,y): " + x + ", " + y);
+  }
+  
+  // Display coordinates for all points
+  public void displayAllCoords(Point[] p){
+    for(int i = 0; i < p.length; i++){
+      System.out.println("Point #" + p[i].getIndex() +
+      " coordinates: (" + p[i] + ")");
+    }
+  }
+
+  // Calculate distance to another point (c2 = a2 + b2)
+  public double distance(final Point inP){
+    return sqrt( (x - inP.x)*(x - inP.x)+(y - inP.y)*(y - inP.y) );
+  }
+
+  // Find highest & lowest values for X/Y and return a new rectangle
+  public Rectangle oversizePoints(double[][] c){
+
+    // Find highest & lowest value of x & y coordinates
+    highX = 0.0;
+    highY = 0.0;
+    lowX  = c[0][0];
+    lowY  = c[0][1];
+
+    for(int i = 0; i < c.length; i++){
+      
+      if( highX < c[i][0] ){ highX = c[i][0]; }      
+      if( highY < c[i][1] ){ highY = c[i][1]; }
+      
+      if( lowX > c[i][0] ){ lowX = c[i][0]; }      
+      if( lowY > c[i][1] ){ lowY = c[i][1]; }      
+    }
+    
+    // Create a rectangle encompassing all others inside.
+    pA  =  new  Point( lowX  , lowY  );
+    pB  =  new  Point( lowX  , highY );
+    pC  =  new  Point( highX , highY );
+    pD  =  new  Point( highX , lowY  );
+    
+    // Add and subtract to move points to one point oversize 
+    coordX = pA.getX(); coordX--; pA.setX(coordX);
+    coordY = pA.getY(); coordY--; pA.setY(coordY);
+    
+    coordX = pB.getX(); coordX--; pB.setX(coordX);
+    coordY = pB.getY(); coordY++; pB.setY(coordY);
+    
+    coordX = pC.getX(); coordX++; pC.setX(coordX);
+    coordY = pC.getY(); coordY++; pC.setY(coordY);
+    
+    coordX = pD.getX(); coordX++; pD.setX(coordX);
+    coordY = pD.getY(); coordY--; pD.setY(coordY);
+    
+    // Create new rectangle with moved points.
+    return new Rectangle(pA, pB, pC, pD);
+  }
+
+  // Sum the highest points and make a rectangle
+  public Rectangle sumPoints(Rectangle[] r){
+    
+    // Create a rectangle encompassing all others inside.
+    pA  =  new  Point( lowX  , lowY );
+    pB  =  new  Point( lowX  , 0.0 );
+    pC  =  new  Point( 0.0  , 0.0 );
+    pD  =  new  Point( 0.0  , lowY );
+    
+    for(int i = 0; i < r.length; i++){
+      
+      // Add  highest points to move points to maximum coordinates 
+      coordY += r[i].getB().getY(); 
+      coordX += r[i].getC().getX();
+      coordY += r[i].getC().getY();
+      coordX += r[i].getD().getX();
+      pB.setY(coordY);
+      pC.setX(coordX);
+      pC.setY(coordY);
+      pD.setX(coordX);
+    }
+    return new Rectangle(pA, pB,pC,pD);
+  }
 }

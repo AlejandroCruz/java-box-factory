@@ -1,5 +1,7 @@
-// Class outline for Chapter 5, Exercises
-< Class BoxFactory
+// Class outline for BoxFactory program
+package Box
+{
+  < Class BoxFactory
     __________
     +_main_(): void
       rectAngle[]: Rectangle
@@ -7,6 +9,7 @@
       line: MyLine
       points: Point
       coords[][]: double >
+}
 
 package Geometry
 {
@@ -60,7 +63,7 @@ package Geometry
       +toString(): String
       +length(): double
       +area(): double
-      +defineAllSides(final int inSides, final Rectangle inRectAngle): void
+      +defineAllSides(final int inSides, final Rectangle inRectAngle): void >
 
   < Class Rectangle
       -_count_: int
