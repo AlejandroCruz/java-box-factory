@@ -68,69 +68,21 @@ public class BoxFactory{
       {9.0 , 6.0}         // element 15 : point #16, bottom-right
     };
 
-/*
+    System.out.println("\n-----------------------------------------------\n");
+    
     // Create Point array and fill with points
     points = new Point[coords.length];
     for(int i = 0; i < points.length; i++){
       points[i] = new Point(coords[i][0], coords[i][1], i+1);
     }
-*/
+
     // Display coordinates for one point
     //points[0].displayOneCoord();
-    
-/*    
+ 
     // Display coordinates for all points
     System.out.println("\nThere are a total of " +
     Point.getCount() + " points in the form (x,y):\n");
     points[0].displayAllCoords(points); 
-*/
-
-/*
-    // Create Rectangles with four existing points
-    for(int i = 0, j = 0; i < points.length; i += 4, j++){
-      rectAngle[j] = new Rectangle(points[i], points[i+1], points[i+2], points[i+3], j+1);
-    }
-*/
-
-/*
-    //Display all rectangles
-    System.out.println("Total of rectangles: " + Rectangle.getCount());
-    Rectangle.displayAllRectangles(rectAngle);
-*/
-
-    /* Create the lines for each rectangle.
-     * Identify each line with start/end points.
-     * Return the sum of total length for all lines & display.
-     */
-/*    for(int i = 0; i < rectAngle.length; i++){
-      System.out.println("\n-- Lines for rectangle " + rectAngle[i].getIndex() + " --");
-
-      totalLength = line.defineAllSides(shapeSides, rectAngle[i]);
-      System.out.println(":: Rectangle area " + line.area() + " ::");
-      totalArea += line.area();
-    }
-    System.out.println("\nTotal length of all lines: " + totalLength +
-      "\nTotal area of all shapes:  " + totalArea);
-*/
-
-    /* Create a parent rectangle encompassing all others inside.
-     * Find highest & lowest values for X/Y.
-     * Dsiplay all sides with length and calculated area.
-     */
-/*  parentRectangle = points[0].oversizePoints(coords);
-    System.out.println("-- Parent Rectangle --");
-    line.defineAllSides(shapeSides, parentRectangle);
-    System.out.println(":: Rectangle area " + line.area() + " ::");
-    // Sum the highest points and make a rectangle
-    parentRectangle = points[0].sumPoints(rectAngle);
-*/
-
-/*
-    // Create a recangle fron an existing one & move points by one
-    derivedRect = new Rectangle(rectAngle[0]);
-    derivedRect.movePoints(derivedRect);
-    System.out.println("\nRectangle 'derivedRect' coords:\n" + derivedRect);
-*/
 
     System.out.println("\n-----------------------------------------------\n");
     
