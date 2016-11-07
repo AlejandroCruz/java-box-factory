@@ -4,15 +4,15 @@ package box;
  * Create rectangles with (x,y) points and display to console.
  *
  * Compile/execute from CL:
- *  cd C:\JavaWorkspace\IvorHortons\Ch5\Box
+ *  cd "C:\JavaWorkspace\...\Box"
  *  javac -cp "C:\Users\...\main" BoxFactory.java
  *  java -cp "C:\Users\...\main" Box.BoxFactory
  */
  
-import Conversion.Metrico;
-import Geometry.Line;
-import Geometry.Point;
-import Geometry.Rectangle;
+import conversion.Metrico;
+import geometry.Line;
+import geometry.Point;
+import geometry.Rectangle;
 
 public class BoxFactory{
 

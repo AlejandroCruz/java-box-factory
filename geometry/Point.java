@@ -1,6 +1,6 @@
 package geometry;
 
-/* Creates points in "x, y" form.
+/* Creates points in (x, y) coordinates system.
  */
 
 import static java.lang.Math.sqrt;      // Calculate distance between two points
@@ -19,7 +19,7 @@ public class Point {
   // INSTANCE VARIABLES
   private double  x;                    // Hold value for x &
   private double  y;                    //   y coords.
-  private int     index;                // Identifier for each point
+  private int index;                    // Identifier for each point
   Point pA;                             // Rectangle corner A
   Point pB;                             // Rectangle corner B
   Point pC;                             // Rectangle corner C
@@ -93,11 +93,9 @@ public class Point {
     lowX  = c[0][0];
     lowY  = c[0][1];
 
-    for(int i = 0; i < c.length; i++){
-      
+    for(int i = 0; i < c.length; i++){      
       if( highX < c[i][0] ){ highX = c[i][0]; }      
       if( highY < c[i][1] ){ highY = c[i][1]; }
-      
       if( lowX > c[i][0] ){ lowX = c[i][0]; }      
       if( lowY > c[i][1] ){ lowY = c[i][1]; }      
     }
@@ -134,9 +132,8 @@ public class Point {
     pC  =  new  Point( 0.0  , 0.0 );
     pD  =  new  Point( 0.0  , lowY );
     
+    // Add  highest points to move points to maximum coordinates
     for(int i = 0; i < r.length; i++){
-      
-      // Add  highest points to move points to maximum coordinates 
       coordY += r[i].getB().getY(); 
       coordX += r[i].getC().getX();
       coordY += r[i].getC().getY();

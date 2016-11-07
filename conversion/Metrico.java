@@ -31,8 +31,7 @@ public class Metrico{
     lengthMM = inMM - lengthM*MILLI - lengthCM*CM_MM;
     counter++;
     totalL = lengthM*MILLI + lengthCM*CM_MM + lengthMM;
-  }
-  
+  }  
   public Metrico(int inM, int inCM, int inMM){
     this(inM + CENTI*inCM + MILLI*inMM);
     totalSumInMilli = inM + CENTI*inCM + MILLI*inMM;

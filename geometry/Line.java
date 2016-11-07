@@ -122,8 +122,7 @@ public class Line{
       }
       System.out.print(
         "Line " + strLineId + " " + this);
-      System.out.println("  -  length: " + length());
-      
+      System.out.println("  -  length: " + length());      
     }
     area(); // Calculate area using AB + BC lines
     return linesLength;

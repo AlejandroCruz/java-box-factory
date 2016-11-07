@@ -34,7 +34,6 @@ public class Rectangle{
     final Point inB,
     final Point inC,
     final Point inD){
-
       pointA = inA;
       pointB = inB;
       pointC = inC;
@@ -45,7 +44,6 @@ public class Rectangle{
     final Point inB,
     final Point inC,
     final Point inD, int index){
-
       this(inA, inB, inC, inD);
       this.index  = index;
       count++;
