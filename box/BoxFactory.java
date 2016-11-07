@@ -1,4 +1,4 @@
-package Box;
+package box;
 
 /* Program: BoxFactory
  * Create rectangles with (x,y) points and display to console.

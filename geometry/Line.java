@@ -1,4 +1,4 @@
-package Geometry;
+package geometry;
 
 /* Create lines from points.
  */

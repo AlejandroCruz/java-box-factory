@@ -1,4 +1,4 @@
-package Geometry;
+package geometry;
 
 /* Creates points in "x, y" form.
  */
