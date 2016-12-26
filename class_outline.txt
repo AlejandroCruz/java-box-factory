@@ -106,4 +106,4 @@ package Geometry
       +area(Metrico inA, Metrico inB): Metrico
       +compare(Metrico inA, Metrico inB): Metrico
       
-} Geometry //
+}
